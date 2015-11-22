@@ -4,7 +4,7 @@ After the execution of **run_analysis.R**, we obtain two dataframes: *LabeledDat
 The variables corresponding to both are the same subset of the original ones contained in [features.txt](https://github.com/antclaudia/Samsung-Wearable-Computing/blob/master/features.txt), 
 but in the case of *SummarizedData* the mean grouped by subject and activity has been computed.
 
-The *SummarizedData* dataframe is written to the file **AverageBySubjectActivity.txt**.
+The *SummarizedData* dataframe is written to the file [**AverageBySubjectActivity.txt**](https://github.com/antclaudia/Samsung-Wearable-Computing/blob/master/AverageBySubjectActivity.txt).
 
 The subset of variables corresponds to those that were means and standard deviations originally, keeping the same units and scale.
 
