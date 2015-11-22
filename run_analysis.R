@@ -1,5 +1,4 @@
 # rm(list=ls())
-
 # setwd("/Users/macbookpro/Documents/Data Science/Getting and Cleaning Data/Course Project/")
 
 ## The function assemble reads the files and puts together one sigle data.frame called Data
@@ -132,6 +131,7 @@ activities <- read.table("./UCI HAR Dataset/activity_labels.txt", sep = "", head
 
 ## helper function to replace activity codes by the corresponding string
 activityLabel <- function(i){activities$V2[i]}
+indicatorLabel <- function(i){ifelse(i,"train","test")}
 
 ## assigns descriptive names to the activity column of MSData.
 MSData <- mutate(MSData,activity=activityLabel(activity))
@@ -142,13 +142,15 @@ GroupedData <- group_by(MSData,subject,activity)
 ## summarize GroupedData computing the means of all their columns
 ## This is the data.frame for part 5.
 SummarizedData <- summarize_each(GroupedData,funs(mean))
+SummarizedData <- mutate(SummarizedData,indicator=indicatorLabel(indicator))
 
 ## creates the tidy data set and fills the data.frame LabeledData with it. 
 ## This is the data.frame for part 4.
 LabeledData <- ungroup(GroupedData)
+LabeledData <- mutate(LabeledData,indicator=indicatorLabel(indicator))
 
 ## cleans the worksapce.
-rm(GroupedData,activities,MSData,Names,activityLabel,Assemble)
+rm(GroupedData,activities,MSData,Names,activityLabel,Assemble,indicatorLabel)
 
 ## creates the file "AverageBySubjectActivity.txt" with the tidy data set
 ## this is the file that will be uploaded to GitHub.
