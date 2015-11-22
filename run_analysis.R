@@ -1,4 +1,5 @@
 # rm(list=ls())
+
 # setwd("/Users/macbookpro/Documents/Data Science/Getting and Cleaning Data/Course Project/")
 
 ## The function assemble reads the files and puts together one sigle data.frame called Data
